@@ -121,7 +121,8 @@ public class MainActivity extends ListActivity implements OnClickListener {
 		public void onDrag(final float percent) {
 			Log.d("TAG", "onDrag: " + percent);
 			// 主界面左上角头像渐渐消失
-			ViewHelper.setAlpha(mHeader, 1 - percent);
+//			ViewHelper.setAlpha(mHeader, 1 - percent);
+            mHeader.setAlpha(1-percent);
 		}
 
 		@Override
