@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <com_itheima42_pressuredemo_MainActivity.h>
+#include <android/log.h>
+#define LOG_TAG "cTag"
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+
+int getPressure(){
+    return rand() % 301;
+};
+
+JNIEXPORT jint JNICALL Java_com_itheima42_pressuredemo_MainActivity_getPressure
+  (JNIEnv * env, jobject obj){
+
+	int pressure = getPressure();
+
+	LOGE("pressure: " + pressure + "\n");
+
+	return pressure;
+};

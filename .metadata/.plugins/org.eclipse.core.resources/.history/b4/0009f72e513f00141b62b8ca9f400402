@@ -1,0 +1,39 @@
+package com.itheima42.compressdemo;
+
+import java.util.Random;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        final PressureView pressureView = new PressureView(this);
+		setContentView(pressureView);
+        
+		new Thread( new Runnable() {
+			
+			@Override
+			public void run() {
+				while(true){
+					SystemClock.sleep(1000);
+					
+					Random random = new Random();
+					
+					// 450 -> 150 , 600 -> 0
+					int pressure = random.nextInt() % 301;
+					
+					Log.d("TAG", "pressure:" + pressure);
+					
+//					pressureView.setPressure(180);
+				}
+				
+			}
+		}).start();
+    }
+}

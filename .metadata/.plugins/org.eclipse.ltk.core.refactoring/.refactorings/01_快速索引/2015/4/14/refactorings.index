@@ -1,0 +1,8 @@
+1427875345876	Extract local variable 'mPaint'
+1427875349983	Convert local variable 'mPaint' to field
+1427876084174	Convert local variable 'cellWidth' to field
+1427876087055	Convert local variable 'cellHeight' to field
+1427879186221	Convert local variable 'mMainList' to field
+1427880196058	Extract local variable 'letter'
+1427880599736	Convert local variable 'persons' to field
+1427880984593	Convert local variable 'tv_center' to field

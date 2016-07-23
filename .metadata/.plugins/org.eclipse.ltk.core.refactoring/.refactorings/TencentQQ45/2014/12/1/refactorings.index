@@ -1,0 +1,34 @@
+1419954089222	Convert local variable 'mLeftContent' to field
+1419954105437	Convert local variable 'mMainContent' to field
+1419954288780	Extract local variable 'mCallback'
+1419954302562	Convert local variable 'mDragHelper' to field
+1419954635470	Extract constant 'TAG'
+1419954733748	Convert local variable 'mWidth' to field
+1419954743075	Convert local variable 'mHeight' to field
+1419954763950	Convert local variable 'mRange' to field
+1419955556485	Extract method 'fixLeft'
+1419956697904	Convert local variable 'mfloatEvaluator' to field
+1419987822168	Extract local variable 'mCallBack'
+1419987832881	Rename field 'mCallBack'
+1419988255200	Convert local variable 'mDragHelper' to field
+1419988611888	Convert local variable 'mLeftContent' to field
+1419988622223	Convert local variable 'mMainContent' to field
+1419989222238	Convert local variable 'mWidth' to field
+1419989233179	Convert local variable 'mHeight' to field
+1419989252374	Convert local variable 'mRange' to field
+1419989362952	Extract constant 'TAG'
+1419991608127	Extract method 'fixLeft'
+1419993867523	Extract local variable 'inversePercent'
+1419994955167	Convert local variable 'mFloatEvaluator' to field
+1419995536633	Extract local variable 'argbEvaluator'
+1419995770281	Extract method 'animViews'
+1420003013865	Rename package 'com.example.tencentqq45'
+1420008223056	Extract local variable 'mClickListener'
+1420008233611	Convert local variable 'mDragLayout' to field
+1420008677977	Extract local variable 'view'
+1420010294170	Extract local variable 'mPaint'
+1420010330224	Convert local variable 'mPaint' to field
+1420012651608	Extract local variable 'radius'
+1420016524152	Convert local variable 'statusBarHeight' to field
+1420017177512	Convert local variable 'isOutOfRange' to field
+1420017921712	Convert local variable 'isDisappear' to field

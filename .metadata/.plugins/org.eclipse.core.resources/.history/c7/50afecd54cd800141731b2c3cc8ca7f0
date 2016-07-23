@@ -1,0 +1,16 @@
+
+public class PinyinUtils {
+
+	/**
+	 * 根据传入的字符串(包含汉字),得到拼音
+	 * @param str 字符串
+	 * @return
+	 */
+	public static String getPinyin(String str) {
+		
+		
+		
+		return null;
+	}
+
+}

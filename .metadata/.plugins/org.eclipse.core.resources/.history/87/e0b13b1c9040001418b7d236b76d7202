@@ -1,0 +1,21 @@
+package com.itheima42.pressuredemo;
+
+import android.content.Context;
+import android.view.View;
+
+/**
+ * 自定义View ，用于显示锅炉压力值的柱子
+ * 
+ * @author poplar
+ *
+ *
+ *
+ */
+public class PressureView extends View {
+
+	public PressureView(Context context) {
+		super(context);
+	}
+	
+	
+}

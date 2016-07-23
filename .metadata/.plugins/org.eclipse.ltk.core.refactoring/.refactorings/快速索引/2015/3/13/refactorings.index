@@ -1,0 +1,7 @@
+1427097367770	Convert local variable 'paint' to field
+1427097555712	Convert local variable 'mHeight' to field
+1427097565269	Convert local variable 'mWidth' to field
+1427097626977	Convert local variable 'mCellHeight' to field
+1427098948455	Extract constant 'TAG'
+1427099021799	Convert local variable 'touchIndex' to field
+1427102648497	Extract local variable 'currentLetter'

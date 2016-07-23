@@ -1,0 +1,18 @@
+package com.itheima42.compressdemo;
+
+import android.content.Context;
+import android.view.View;
+
+
+/**
+ * ¹øÂ¯Ñ¹Á¦ÏÔÊ¾Öù×´Í¼
+ * @author poplar
+ *
+ */
+public class PressureView extends View {
+
+	public PressureView(Context context) {
+		super(context);
+	}
+
+}

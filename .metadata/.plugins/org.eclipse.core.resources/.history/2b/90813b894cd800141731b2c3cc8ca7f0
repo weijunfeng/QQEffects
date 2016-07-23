@@ -1,0 +1,9 @@
+
+public class PinyinUtils {
+
+	public static String getPinyin(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

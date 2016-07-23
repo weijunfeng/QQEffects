@@ -1,0 +1,79 @@
+package com.itheima.tencentqq52.drag;
+
+import android.content.Context;
+import android.support.v4.widget.ViewDragHelper;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+/**
+ * 侧滑面板
+ * @author poplar
+ *
+ */
+public class DragLayout extends FrameLayout {
+
+	private ViewDragHelper mDragHelper;
+	
+	public DragLayout(Context context) {
+		this(context, null);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		// a.初始化操作 (通过静态方法) 
+		mDragHelper = ViewDragHelper.create(this , mCallback);
+		
+	}
+	ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
+		@Override
+		public boolean tryCaptureView(View child, int pointerId) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+	};
+	private ViewGroup mLeftContent;
+	private ViewGroup mMainContent;
+	
+	// b. 传递触摸事件
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		// 传递给mDragHelper
+		return mDragHelper.shouldInterceptTouchEvent(ev);
+	}
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		try {
+			mDragHelper.processTouchEvent(event);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 返回true, 持续接受事件
+		return true;
+	}
+	
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		// Github
+		// 写注释
+		// 容错性检查 (至少有俩子View, 子View必须是ViewGroup的子类)
+		
+		if(getChildCount() < 2){
+			throw new IllegalStateException("布局至少有俩孩子. Your ViewGroup must have 2 children at least.");
+		}
+		if(!(getChildAt(0) instanceof ViewGroup && getChildAt(1) instanceof ViewGroup)){
+			throw new IllegalArgumentException("子View必须是ViewGroup的子类. Your children must be an instance of ViewGroup");
+		}
+		
+		mLeftContent = (ViewGroup) getChildAt(0);
+		mMainContent = (ViewGroup) getChildAt(1);
+	}
+}

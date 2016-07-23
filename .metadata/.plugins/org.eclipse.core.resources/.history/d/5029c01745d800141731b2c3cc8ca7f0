@@ -1,0 +1,31 @@
+package com.itheima.quickindex.ui;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+
+/**
+ * 快速索引
+ * 
+ * 用于根据字母快速定位联系人
+ * @author poplar
+ *
+ */
+public class QuickIndexBar extends View {
+
+	public QuickIndexBar(Context context) {
+		this(context, null);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		
+		
+	}
+
+}

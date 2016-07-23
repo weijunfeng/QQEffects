@@ -1,0 +1,13 @@
+
+public class UtilTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		String pinyin = PinyinUtils.getPinyin("黑马");
+		
+	}
+
+}

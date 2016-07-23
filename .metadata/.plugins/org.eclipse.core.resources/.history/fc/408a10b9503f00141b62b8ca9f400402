@@ -1,0 +1,28 @@
+package com.itheima42.compressdemo;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        final PressureView pressureView = new PressureView(this);
+		setContentView(pressureView);
+        
+		new Thread( new Runnable() {
+			
+			@Override
+			public void run() {
+				while(true){
+					
+					pressureView.setPressure(180);
+					
+				}
+				
+			}
+		}).start();
+    }
+}

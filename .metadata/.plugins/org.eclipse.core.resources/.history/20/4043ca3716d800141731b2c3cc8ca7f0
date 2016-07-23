@@ -1,0 +1,142 @@
+package com.itheima.tencentqq52.drag;
+
+import android.content.Context;
+import android.support.v4.widget.ViewDragHelper;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+/**
+ * 侧滑面板
+ * @author poplar
+ *
+ */
+public class DragLayout extends FrameLayout {
+
+	private static final String TAG = "TAG";
+	private ViewDragHelper mDragHelper;
+	private ViewGroup mLeftContent;
+	private ViewGroup mMainContent;
+	
+	public DragLayout(Context context) {
+		this(context, null);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		// a.初始化 (通过静态方法) 
+		mDragHelper = ViewDragHelper.create(this , mCallback);
+		
+	}
+	
+	ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
+		// c. 重写事件
+		
+		// 1. 根据返回结果决定当前child是否可以拖拽
+		// child 当前被拖拽的View
+		// pointerId 区分多点触摸的id
+		@Override
+		public boolean tryCaptureView(View child, int pointerId) {
+			Log.d(TAG, "tryCaptureView: " + child);
+			return true;
+		};
+		
+		@Override
+		public void onViewCaptured(View capturedChild, int activePointerId) {
+			Log.d(TAG, "onViewCaptured: " + capturedChild);
+			// 当capturedChild被捕获时,调用.
+			super.onViewCaptured(capturedChild, activePointerId);
+		}
+
+		@Override
+		public int getViewHorizontalDragRange(View child) {
+			return super.getViewHorizontalDragRange(child);
+		}
+		
+		// 2. 根据建议值修正将要移动到的(横向)位置
+		public int clampViewPositionHorizontal(View child, int left, int dx) {
+			return left;
+		}
+		@Override
+		public int clampViewPositionVertical(View child, int top, int dy) {
+			return super.clampViewPositionVertical(child, top, dy);
+		};
+
+		@Override
+		public void onViewPositionChanged(View changedView, int left, int top,
+				int dx, int dy) {
+			super.onViewPositionChanged(changedView, left, top, dx, dy);
+		}
+
+		@Override
+		public void onViewReleased(View releasedChild, float xvel, float yvel) {
+			super.onViewReleased(releasedChild, xvel, yvel);
+		}
+
+
+		@Override
+		public void onViewDragStateChanged(int state) {
+			// TODO Auto-generated method stub
+			super.onViewDragStateChanged(state);
+		}
+
+	};
+	private int mHeight;
+	private int mWidth;
+	
+	// b.传递触摸事件
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		// 传递给mDragHelper
+		return mDragHelper.shouldInterceptTouchEvent(ev);
+	}
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		try {
+			mDragHelper.processTouchEvent(event);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 返回true, 持续接受事件
+		return true;
+	}
+	
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		// Github
+		// 写注释
+		// 容错性检查 (至少有俩子View, 子View必须是ViewGroup的子类)
+		
+		if(getChildCount() < 2){
+			throw new IllegalStateException("布局至少有俩孩子. Your ViewGroup must have 2 children at least.");
+		}
+		if(!(getChildAt(0) instanceof ViewGroup && getChildAt(1) instanceof ViewGroup)){
+			throw new IllegalArgumentException("子View必须是ViewGroup的子类. Your children must be an instance of ViewGroup");
+		}
+		
+		mLeftContent = (ViewGroup) getChildAt(0);
+		mMainContent = (ViewGroup) getChildAt(1);
+	}
+	
+	@Override
+	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+		super.onSizeChanged(w, h, oldw, oldh);
+		// 当尺寸有变化的时候调用
+		
+		mHeight = getMeasuredHeight();
+		mWidth = getMeasuredWidth();
+		
+		int mRange = (int) (mWidth * 0.6f);
+		
+	}
+	
+}

@@ -1,0 +1,15 @@
+
+public class UtilTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		System.out.println(PinyinUtils.getPinyin("黑马"));
+		System.out.println(PinyinUtils.getPinyin("黑马程序猿"));
+		System.out.println(PinyinUtils.getPinyin("黑马"));
+		
+	}
+
+}

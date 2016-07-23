@@ -1,0 +1,13 @@
+obj/local/armeabi/objs/PressureDemo/PressureDemo.o: jni/PressureDemo.c \
+ F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/jni.h \
+ F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
+ F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
+ F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/android/api-level.h
+
+F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/jni.h:
+
+F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
+
+F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
+
+F:/Software/android-ndk-r10b/platforms/android-19/arch-arm/usr/include/android/api-level.h:

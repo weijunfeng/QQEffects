@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 6 resources" deleteContents="false" description="Delete 6 resources" element1="/QuickIndex" element2="/TencentQQ" element3="/TencentQQ49" element4="/TencentQQ50" element5="/TestPro" element6="/快速索引" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1427272772075"/>
+</session>

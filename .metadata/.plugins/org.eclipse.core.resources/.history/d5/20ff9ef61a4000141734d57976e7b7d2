@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <com_itheima42_pressuredemo_MainActivity.h>
+
+int getPressure(){
+    return rand() % 301;
+};
+
+JNIEXPORT jint JNICALL Java_com_itheima42_pressuredemo_MainActivity_getPressure
+  (JNIEnv * env, jobject obj){
+
+	return getPressure();
+};

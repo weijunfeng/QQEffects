@@ -1,0 +1,42 @@
+package com.itheima.quickindex.ui;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.View;
+
+/**
+ * 快速索引
+ * 
+ * 用于根据字母快速定位联系人
+ * @author poplar
+ *
+ */
+public class QuickIndexBar extends View {
+
+	private Paint mPaint;
+
+	public QuickIndexBar(Context context) {
+		this(context, null);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		mPaint = new Paint();
+	}
+	
+	@Override
+	protected void onDraw(Canvas canvas) {
+		// 绘制文本A-Z
+		canvas.drawText("A", 20, 20, mPaint);
+		
+		
+	}
+
+}

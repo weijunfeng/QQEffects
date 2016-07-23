@@ -1,0 +1,8 @@
+#include <jni.h>
+
+
+
+JNIEXPORT jint JNICALL Java_com_itheima42_pressuredemo_MainActivity_getPressure
+  (JNIEnv * env, jobject obj){
+
+};

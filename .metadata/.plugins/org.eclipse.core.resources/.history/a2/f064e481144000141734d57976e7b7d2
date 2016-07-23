@@ -1,0 +1,64 @@
+package com.itheima42.pressuredemo;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+
+/**
+ * 锅炉压力的自定义View
+ * 
+ * 自定义View的绘制步骤： measure(测量) - layout(排版/布局) - draw(绘制)
+ * 							|					|   		  |
+ * 						onMeasure()   -     onLayout()   - onDraw()
+ *  
+ * @author poplar
+ *
+ */
+public class PressureView extends View {
+
+	int pressure = 0;
+	private Paint paint;
+	
+	public PressureView(Context context) {
+		super(context);
+		paint = new Paint();
+		
+	}
+	
+	public void setPressure(int pressure){
+		this.pressure = pressure;
+		if(pressure < 100){
+			paint.setColor(Color.GREEN);
+		} else if (pressure < 200) {
+			paint.setColor(Color.YELLOW);
+		} else {
+			paint.setColor(Color.RED);
+		}
+
+		invalidate();
+	}
+	
+	/**
+	 * 画布、画板
+	 * 所有的view都会被画在这个canvas上
+	 */
+	@Override
+	protected void onDraw(Canvas canvas) {
+		
+		int top = 320 - pressure;
+		
+		canvas.drawRect(30, top, 80, 320, paint);
+	}
+
+}
+
+
+
+
+
+
+
+
+

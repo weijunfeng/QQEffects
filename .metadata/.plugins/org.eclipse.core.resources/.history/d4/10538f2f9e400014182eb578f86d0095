@@ -1,0 +1,81 @@
+package com.itheima42.pressuredemo;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+
+/**
+ * 自定义View 
+ * @author poplar
+ *	
+ * Android 自定义View的流程： measure(测量) - layout(排版,布局) - draw(绘制)
+ * 								|				|				  |
+ * 							onMeasure()		onLayout()			onDraw()
+ *  
+ * 用于显示锅炉压力值的柱子, 矩形图
+ */
+public class PressureView extends View {
+
+	int pressure = 150;
+	Paint paint ;
+	private Bitmap bitmap;
+	
+	public PressureView(Context context) {
+		super(context);
+		paint = new Paint();
+	}
+	
+	/**
+	 * 设置最新的压力值，同时刷新界面，也就是柱子的高度更新
+	 * @param pressure
+	 */
+	public void setPressure(int pressure){
+		this.pressure = pressure;
+		
+		if(pressure < 100){
+			paint.setColor(Color.GREEN);
+		} else if (pressure < 200) {
+			paint.setColor(Color.YELLOW);
+		} else {
+			paint.setColor(Color.RED);
+		}
+		
+		
+		
+	}
+	
+	/**
+	 * 画出柱状图
+	 * canvas (画布、画板): 所有的东西都会被绘制到canvas上。
+	 * 
+	 */
+	@Override
+	protected void onDraw(Canvas canvas) {
+		
+		if( pressure > 250){
+			bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bomb);
+			canvas.drawBitmap(bitmap, 0, 0, null);
+			
+			paint.setTextSize(19);
+			canvas.drawText("锅炉要爆炸啦，赶紧跑吧！小命要紧！", 0, this.getMeasuredHeight() / 2, paint);
+			
+		}else {
+			/**
+			 * left = 20
+			 * top = 30
+			 * right = 70
+			 * bottom = 280
+			 * 
+			 */
+			
+			int top = 280 - pressure ;
+			
+			canvas.drawRect(20, top, 70, 280, paint);
+		}
+	}
+	
+}

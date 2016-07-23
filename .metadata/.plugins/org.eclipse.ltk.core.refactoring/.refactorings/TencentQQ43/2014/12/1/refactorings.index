@@ -1,0 +1,4 @@
+1419928032818	Convert local variable 'mAnim' to field
+1419928897388	Convert local variable 'floatEvaluator' to field
+1419928899514	Convert local variable 'argbEvaluator' to field
+1419956026452	Copy compilation unit

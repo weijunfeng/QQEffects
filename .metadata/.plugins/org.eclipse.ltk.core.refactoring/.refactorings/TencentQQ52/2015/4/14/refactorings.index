@@ -1,0 +1,13 @@
+1427851792982	Extract local variable 'mCallback'
+1427851833483	Convert local variable 'mDragHelper' to field
+1427852850002	Convert local variable 'mLeftContent' to field
+1427852852181	Convert local variable 'mMainContent' to field
+1427854711731	Extract constant 'TAG'
+1427855030228	Convert local variable 'mHeight' to field
+1427855040955	Convert local variable 'mWidth' to field
+1427855066497	Convert local variable 'mRange' to field
+1427856265945	Extract method 'fixLeft'
+1427870614440	Extract method 'animViews'
+1427871528391	Extract constant 'TAG'
+1427872136724	Extract local variable 'view'
+1427879113892	Copy compilation unit

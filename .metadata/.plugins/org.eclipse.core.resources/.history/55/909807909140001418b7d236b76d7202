@@ -1,0 +1,49 @@
+package com.itheima42.pressuredemo;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+
+/**
+ * 自定义View 
+ * @author poplar
+ *	
+ * Android 自定义View的流程： measure(测量) - layout(排版,布局) - draw(绘制)
+ * 								|				|				  |
+ * 							onMeasure()		onLayout()			onDraw()
+ *  
+ * 用于显示锅炉压力值的柱子, 矩形图
+ */
+public class PressureView extends View {
+
+	public PressureView(Context context) {
+		super(context);
+	}
+	
+	/**
+	 * 画出柱状图
+	 * canvas (画布、画板): 所有的东西都会被绘制到canvas上。
+	 * 
+	 */
+	@Override
+	protected void onDraw(Canvas canvas) {
+		
+		/**
+		 * left = 20
+		 * top = 30
+		 * right = 70
+		 * bottom = 280
+		 * 
+		 */
+		Paint paint = new Paint();
+		paint.setColor(Color.RED);
+		
+		int pressure = 150;
+		int top = 280 - pressure ;
+		
+		canvas.drawRect(20, 30, 70, 280, paint);
+	}
+	
+}

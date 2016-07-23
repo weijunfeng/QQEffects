@@ -1,0 +1,22 @@
+package com.itheima42.compressdemo;
+
+import android.content.Context;
+import android.view.View;
+
+
+/**
+ * 锅炉压力显示柱状图
+ * @author poplar
+ * 
+ * Android自定义View 三步： measure(测量) - layout(布局) - draw(绘制)
+ * 								|				| 			|
+ *							onMeasure()		onLayout()    onDraw() 	
+ */
+public class PressureView extends View {
+
+	public PressureView(Context context) {
+		super(context);
+	}
+	
+
+}

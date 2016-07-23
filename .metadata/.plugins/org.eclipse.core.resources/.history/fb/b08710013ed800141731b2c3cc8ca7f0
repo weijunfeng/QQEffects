@@ -1,0 +1,63 @@
+package com.itheima.tencentqq52;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.itheima.tencentqq52.drag.DragLayout;
+import com.itheima.tencentqq52.drag.DragLayout.OnDragStatusChangeListener;
+import com.itheima.tencentqq52.util.Cheeses;
+import com.itheima.tencentqq52.util.Utils;
+
+public class MainActivity extends Activity {
+
+	private static final String TAG = "TAG";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_main);
+		
+		// 查找Draglayout, 设置监听
+		DragLayout mDragLayout = (DragLayout) findViewById(R.id.dl);
+		mDragLayout.setDragStatusListener(new OnDragStatusChangeListener() {
+			
+			@Override
+			public void onOpen() {
+				Utils.showToast(MainActivity.this, "onOpen");
+			}
+			
+			@Override
+			public void onDraging(float percent) {
+				Log.d(TAG, "onDraging: " + percent);
+			}
+			
+			@Override
+			public void onClose() {
+				Utils.showToast(MainActivity.this, "onClose");
+			}
+		});
+		
+		ListView mLeftList = (ListView) findViewById(R.id.lv_left);
+		mLeftList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Cheeses.sCheeseStrings){
+			@Override
+			public View getView(int position, View convertView, ViewGroup parent) {
+				View view = super.getView(position, convertView, parent);
+				return view;
+			}
+		});
+		
+		ListView mMainList = (ListView) findViewById(R.id.lv_main);
+		mMainList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Cheeses.NAMES));
+		
+		
+		
+	}
+
+}

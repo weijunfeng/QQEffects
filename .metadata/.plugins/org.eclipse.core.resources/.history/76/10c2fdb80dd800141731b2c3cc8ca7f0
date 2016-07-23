@@ -1,0 +1,29 @@
+package com.itheima.tencentqq52.drag;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.FrameLayout;
+
+/**
+ * 侧滑面板
+ * @author poplar
+ *
+ */
+public class DragLayout extends FrameLayout {
+
+	public DragLayout(Context context) {
+		this(context, null);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public DragLayout(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		// 初始化操作
+		
+	}
+
+}

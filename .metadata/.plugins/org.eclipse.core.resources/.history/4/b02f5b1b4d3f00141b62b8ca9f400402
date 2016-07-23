@@ -1,0 +1,7 @@
+package com.itheima42.compressdemo;
+
+import android.view.View;
+
+public class PressureView extends View {
+
+}

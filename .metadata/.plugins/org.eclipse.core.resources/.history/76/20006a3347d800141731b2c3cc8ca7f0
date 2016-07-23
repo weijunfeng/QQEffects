@@ -1,0 +1,73 @@
+package com.itheima.quickindex.ui;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.View;
+
+/**
+ * 快速索引
+ * 
+ * 用于根据字母快速定位联系人
+ * @author poplar
+ *
+ */
+public class QuickIndexBar extends View {
+	
+	private static final String[] LETTERS = new String[]{
+		"A", "B", "C", "D", "E", "F",
+		"G", "H", "I", "J", "K", "L",
+		"M", "N", "O", "P", "Q", "R",
+		"S", "T", "U", "V", "W", "X",
+		"Y", "Z"};
+	
+	private Paint mPaint;
+
+	private int cellWidth;
+
+	private float cellHeight;
+
+	public QuickIndexBar(Context context) {
+		this(context, null);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+	}
+
+	public QuickIndexBar(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		mPaint.setColor(Color.WHITE);
+	}
+	
+	@Override
+	protected void onDraw(Canvas canvas) {
+		
+		for (int i = 0; i < LETTERS.length; i++) {
+			// 计算坐标
+			int x;
+			int y;
+			// 绘制文本A-Z
+			canvas.drawText("A", 20, 20, mPaint);
+		}
+		
+	}
+	
+	@Override
+	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+		super.onSizeChanged(w, h, oldw, oldh);
+		
+		cellWidth = getMeasuredWidth();
+		
+		int mHeight = getMeasuredHeight();
+		
+		cellHeight = mHeight * 1.0f / LETTERS.length;
+		
+	}
+	
+	
+}

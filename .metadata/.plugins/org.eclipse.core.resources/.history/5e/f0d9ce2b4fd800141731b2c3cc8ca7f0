@@ -1,0 +1,56 @@
+package com.itheima.quickindex;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ListView;
+
+import com.itheima.quickindex.adapter.HaoHanAdapter;
+import com.itheima.quickindex.bean.Person;
+import com.itheima.quickindex.ui.QuickIndexBar;
+import com.itheima.quickindex.ui.QuickIndexBar.OnLetterUpdateListener;
+import com.itheima.quickindex.util.Cheeses;
+import com.itheima.quickindex.util.Utils;
+
+public class MainActivity extends Activity {
+
+	private ListView mMainList;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		QuickIndexBar bar = (QuickIndexBar) findViewById(R.id.bar);
+		// 设置监听
+		bar.setListener(new OnLetterUpdateListener() {
+			@Override
+			public void onLetterUpdate(String letter) {
+				Utils.showToast(getApplicationContext(), letter);
+				// 根据字母定位ListView
+			}
+		});
+		
+		mMainList = (ListView) findViewById(R.id.lv_main);
+		
+		// 存储人名和拼音的集合
+		ArrayList<Person> persons = new ArrayList<Person>();
+		
+		// 填充数据 , 排序
+		fillAndSortData(persons);
+		
+		mMainList.setAdapter(new HaoHanAdapter(MainActivity.this , persons));
+		
+		
+	}
+
+	private void fillAndSortData(ArrayList<Person> persons) {
+		for (int i = 0; i < Cheeses.NAMES.length; i++) {
+			
+		}
+		
+	}
+
+
+}
